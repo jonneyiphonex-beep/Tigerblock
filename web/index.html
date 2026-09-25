@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#211c18" />
+    <title>Tigerblock | Network control</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#top" aria-label="Tigerblock home">
+          <span class="brand-mark">T</span>
+          <span>Tigerblock</span>
+        </a>
+
+        <nav class="nav-list" aria-label="Main navigation">
+          <a class="nav-item active" href="#overview"><span class="nav-icon">+</span>Overview</a>
+          <a class="nav-item" href="#applications"><span class="nav-icon">A</span>Applications</a>
+          <a class="nav-item" href="#ports"><span class="nav-icon">P</span>Ports</a>
+          <a class="nav-item" href="#activity"><span class="nav-icon">~</span>Activity</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <span class="online-dot"></span>
+          <div><strong>Protection service</strong><small>Ready on this device</small></div>
+        </div>
+      </aside>
+
+      <main class="main-content" id="top">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Windows 10 system monitor</p>
+            <h1>See what is running.</h1>
+          </div>
+          <button class="avatar" type="button" aria-label="Open profile menu">TB</button>
+        </header>
+
+        <section class="hero-panel" id="overview" aria-labelledby="status-heading">
+          <div class="hero-copy">
+            <p class="eyebrow">Protection status</p>
+            <h2 id="status-heading">Your network is <span id="status-label">locked down</span>.</h2>
+            <p class="hero-description">Incoming and outgoing connections are blocked until you approve an application or port.</p>
+            <button class="primary-button" id="protection-toggle" type="button" aria-pressed="true">
+              <span class="button-indicator"></span><span id="toggle-label">Protection active</span>
+            </button>
+          </div>
+          <div class="tiger-photo-frame">
+            <img class="tiger-photo" src="tigerblock.jpg" alt="Tigerblock tiger portrait" />
+          </div>
+        </section>
+
+        <section class="metric-grid" aria-label="Live Windows system summary">
+          <article class="metric-card"><span class="metric-label">Running processes</span><strong id="process-count">--</strong><span class="metric-change neutral">Live snapshot</span></article>
+          <article class="metric-card"><span class="metric-label">Installed applications</span><strong id="app-count">--</strong><span class="metric-change neutral">Registry inventory</span></article>
+          <article class="metric-card"><span class="metric-label">Listening ports</span><strong id="port-count">--</strong><span class="metric-change neutral">TCP listeners</span></article>
+        </section>
+
+        <div class="section-heading" id="devices"><div><p class="eyebrow">Device inventory</p><h2>Windows activity</h2></div><span class="live-status"><span class="online-dot"></span><span id="last-updated">Waiting for Windows...</span></span></div>
+        <section class="monitor-grid" aria-label="Windows device and network status">
+          <article class="monitor-card"><span class="monitor-symbol">USB</span><div><strong id="usb-count">--</strong><small>USB devices connected</small></div></article>
+          <article class="monitor-card"><span class="monitor-symbol">K</span><div><strong id="keyboard-count">--</strong><small>Keyboards detected</small></div></article>
+          <article class="monitor-card"><span class="monitor-symbol">M</span><div><strong id="mouse-count">--</strong><small>Mice detected</small></div></article>
+          <article class="monitor-card"><span class="monitor-symbol network-symbol">N</span><div><strong id="network-count">--</strong><small>Network adapters up</small></div></article>
+        </section>
+
+        <section class="risk-panel" aria-labelledby="risk-heading"><div><p class="eyebrow">Defensive checks</p><h2 id="risk-heading">Visible network exposure</h2><p class="risk-description">Listening ports are shown for review. This monitor does not claim to prove or disprove a backdoor.</p></div><div class="risk-result" id="risk-result"><span class="risk-dot"></span><strong>Waiting for snapshot</strong></div></section>
+
+        <div class="section-heading" id="applications"><div><p class="eyebrow">Access list</p><h2>Allowed applications</h2></div><button class="text-button" id="add-app" type="button">+ Add application</button></div>
+        <section class="access-list" aria-label="Allowed applications list">
+          <article class="access-row"><span class="app-icon chrome">C</span><div class="access-details"><strong>Google Chrome</strong><small>C:\\Program Files\\Google\\Chrome\\Application</small></div><span class="access-type">Outbound</span><button class="remove-button" type="button" aria-label="Remove Google Chrome">Remove</button></article>
+          <article class="access-row"><span class="app-icon code">&lt;/&gt;</span><div class="access-details"><strong>Visual Studio Code</strong><small>C:\\Users\\You\\AppData\\Local\\Programs</small></div><span class="access-type">Outbound</span><button class="remove-button" type="button" aria-label="Remove Visual Studio Code">Remove</button></article>
+          <article class="access-row"><span class="app-icon system">S</span><div class="access-details"><strong>Windows Update</strong><small>C:\\Windows\\System32\\svchost.exe</small></div><span class="access-type">Outbound</span><button class="remove-button" type="button" aria-label="Remove Windows Update">Remove</button></article>
+        </section>
+
+        <div class="section-heading" id="ports"><div><p class="eyebrow">Network gates</p><h2>Open ports</h2></div><button class="text-button" id="add-port" type="button">+ Open a port</button></div>
+        <section class="access-list" aria-label="Open ports list"><article class="access-row"><span class="port-icon">TCP</span><div class="access-details"><strong>Port 8080</strong><small>Custom_Port_8080</small></div><span class="access-type">Local</span><button class="remove-button" type="button" aria-label="Remove port 8080">Remove</button></article></section>
+
+        <section class="activity-section" id="activity"><div class="section-heading"><div><p class="eyebrow">Latest events</p><h2>Activity</h2></div><button class="text-button" id="clear-activity" type="button">Clear</button></div><div class="activity-list" id="activity-list"><p><span class="activity-time">09:42</span><span class="activity-dot blocked"></span><span>Blocked an unknown outbound connection</span></p><p><span class="activity-time">09:16</span><span class="activity-dot allowed"></span><span>Allowed Google Chrome through the firewall</span></p></div></section>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

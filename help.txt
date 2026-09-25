@@ -1,0 +1,9 @@
+windows-blocker-rust/
+├── src/
+│   ├── main.rs               # نقطة البداية لبرنامج Rust
+│   ├── firewall.rs           # وحدة السيطرة على الجدار الناري وأوامر netsh
+│   └── ui.rs                 # وحدة التعامل مع نوافذ المنطق والموافقة
+├── build.rs                  # اسكريبت البناء (يستخدم لدمج ملفات Manifest والموارد)
+├── app.manifest              # ملف لطلب صلاحيات الأدمن (Admin Privilege)
+├── Cargo.toml                # ملف الإعدادات والمكتبات الخاصة بـ Cargo
+└── README.md
